@@ -9,8 +9,8 @@ export default function AdminDashboard() {
           {/* Page Header */}
           <header className="flex flex-col md:flex-row md:items-end justify-between gap-4">
             <div>
-              <h2 className="text-3xl font-black font-public-sans text-on-surface tracking-tighter">Revenue Intelligence</h2>
-              <p className="text-on-surface-variant font-medium">Fiscal Year 2023-24 • Live Data Feed</p>
+              <h2 className="text-3xl font-black font-public-sans text-on-surface tracking-tighter">Money Report</h2>
+              <p className="text-on-surface-variant font-medium">This year • Live update</p>
             </div>
             <div className="flex gap-3">
               <button className="bg-surface-container-high px-4 py-2 rounded-lg text-sm font-bold flex items-center gap-2 hover:bg-surface-container-highest transition-colors">
@@ -27,7 +27,7 @@ export default function AdminDashboard() {
           {/* KPI Row (The "Snapshot" Pattern) */}
           <section className="grid grid-cols-1 md:grid-cols-4 gap-6">
             <div className="bg-surface-container-lowest p-6 rounded-xl monolithic-accent flex flex-col justify-between h-32">
-              <span className="text-on-surface-variant text-[11px] font-bold uppercase tracking-[0.1em]">Total Collection</span>
+              <span className="text-on-surface-variant text-[11px] font-bold uppercase tracking-[0.1em]">Total Money Collected</span>
               <h3 className="text-2xl font-black font-public-sans text-primary">₦2.48B</h3>
               <div className="flex items-center text-xs font-bold text-cyan-600 gap-1">
                 <span className="material-symbols-outlined text-sm">trending_up</span>
@@ -36,7 +36,7 @@ export default function AdminDashboard() {
             </div>
             
             <div className="bg-surface-container-lowest p-6 rounded-xl monolithic-accent flex flex-col justify-between h-32">
-              <span className="text-on-surface-variant text-[11px] font-bold uppercase tracking-[0.1em]">Target Variance</span>
+              <span className="text-on-surface-variant text-[11px] font-bold uppercase tracking-[0.1em]">Goal Progress</span>
               <h3 className="text-2xl font-black font-public-sans text-primary">-4.2%</h3>
               <div className="flex items-center text-xs font-bold text-tertiary gap-1">
                 <span className="material-symbols-outlined text-sm">info</span>
@@ -45,7 +45,7 @@ export default function AdminDashboard() {
             </div>
 
             <div className="bg-surface-container-lowest p-6 rounded-xl monolithic-accent flex flex-col justify-between h-32">
-              <span className="text-on-surface-variant text-[11px] font-bold uppercase tracking-[0.1em]">Budget Utilization</span>
+              <span className="text-on-surface-variant text-[11px] font-bold uppercase tracking-[0.1em]">Money Spent</span>
               <h3 className="text-2xl font-black font-public-sans text-primary">68.5%</h3>
               <div className="w-full bg-surface-container h-1 rounded-full overflow-hidden">
                 <div className="bg-surface-tint h-full w-[68%]"></div>
@@ -140,7 +140,7 @@ export default function AdminDashboard() {
           {/* Detailed Ledger Table */}
           <section className="bg-surface-container-lowest rounded-xl overflow-hidden shadow-sm">
             <div className="p-6 flex justify-between items-center">
-              <h4 className="font-bold text-on-surface font-public-sans">Real-time Transaction Ledger</h4>
+              <h4 className="font-bold text-on-surface font-public-sans">Recent Payments</h4>
               <div className="flex items-center gap-2">
                 <input className="bg-surface-container border-none rounded-lg text-xs px-4 py-2 w-64 focus:ring-1 focus:ring-primary" placeholder="Search entries..." type="text" />
               </div>
@@ -149,8 +149,8 @@ export default function AdminDashboard() {
               <table className="w-full text-left border-collapse">
                 <thead>
                   <tr className="bg-surface-container-high text-[11px] font-bold text-on-surface-variant uppercase tracking-widest">
-                    <th className="px-6 py-4">Transaction ID</th>
-                    <th className="px-6 py-4">Revenue Source</th>
+                    <th className="px-6 py-4">Receipt No.</th>
+                    <th className="px-6 py-4">Payment Source</th>
                     <th className="px-6 py-4">Location</th>
                     <th className="px-6 py-4">Status</th>
                     <th className="px-6 py-4 text-right">Amount (₦)</th>

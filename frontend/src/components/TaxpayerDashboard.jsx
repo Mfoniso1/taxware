@@ -14,18 +14,38 @@ export default function TaxpayerDashboard() {
         {/* Dashboard Header Section */}
         <div className="mb-10 flex flex-col md:flex-row md:items-end justify-between gap-6">
           <div>
-            <span className="text-xs font-bold text-primary tracking-[0.2em] uppercase mb-2 block font-public-sans">Enterprise Portal</span>
-            <h1 className="text-4xl font-extrabold text-on-surface font-public-sans tracking-tighter">Taxpayer Dashboard</h1>
-            <p className="text-on-surface-variant mt-2 max-w-lg leading-relaxed">Manage your corporate fiscal obligations and compliance certifications from the central TaxTrack platform.</p>
+            <span className="text-xs font-bold text-primary tracking-[0.2em] uppercase mb-2 block font-public-sans">Business Account</span>
+            <h1 className="text-4xl font-extrabold text-on-surface font-public-sans tracking-tighter">My Tax Home</h1>
+            <p className="text-on-surface-variant mt-2 max-w-lg leading-relaxed">Check and pay your taxes here. You can also get your tax clearance certificates easily.</p>
           </div>
           <div className="flex gap-3">
             <button className="bg-primary hover:bg-primary-container text-on-primary px-6 py-3 rounded-lg font-semibold flex items-center gap-2 transition-all shadow-lg shadow-primary/10 active:scale-95">
-              <span className="material-symbols-outlined text-sm">post_add</span> File Annual Return
+              <span className="material-symbols-outlined text-sm">post_add</span> Submit Record
             </button>
             <button className="bg-surface-container-high hover:bg-surface-container-highest text-on-surface px-6 py-3 rounded-lg font-semibold flex items-center gap-2 transition-all active:scale-95">
-              <span className="material-symbols-outlined text-sm">verified</span> Request e-TCC
+              <span className="material-symbols-outlined text-sm">verified</span> Get Certificate
             </button>
           </div>
+        </div>
+
+        {/* Quick Action Tiles (Mobile Only) */}
+        <div className="md:hidden grid grid-cols-2 gap-4 mb-8">
+          <button className="bg-cyan-800 text-white p-6 rounded-2xl flex flex-col items-center gap-3 shadow-lg active:scale-95 transition-all">
+            <span className="material-symbols-outlined text-3xl">payments</span>
+            <span className="text-xs font-bold uppercase tracking-wider text-center">Pay Your Tax</span>
+          </button>
+          <button className="bg-white dark:bg-cyan-900 text-cyan-900 dark:text-white p-6 rounded-2xl flex flex-col items-center gap-3 shadow-md border border-slate-100 dark:border-cyan-800 active:scale-95 transition-all">
+            <span className="material-symbols-outlined text-3xl">verified</span>
+            <span className="text-xs font-bold uppercase tracking-wider text-center">Get Certificates</span>
+          </button>
+          <button className="bg-white dark:bg-cyan-900 text-cyan-900 dark:text-white p-6 rounded-2xl flex flex-col items-center gap-3 shadow-md border border-slate-100 dark:border-cyan-800 active:scale-95 transition-all">
+            <span className="material-symbols-outlined text-3xl">add_business</span>
+            <span className="text-xs font-bold uppercase tracking-wider text-center">Register Business</span>
+          </button>
+          <button className="bg-white dark:bg-cyan-900 text-cyan-900 dark:text-white p-6 rounded-2xl flex flex-col items-center gap-3 shadow-md border border-slate-100 dark:border-cyan-800 active:scale-95 transition-all">
+            <span className="material-symbols-outlined text-3xl">help</span>
+            <span className="text-xs font-bold uppercase tracking-wider text-center">Get Help</span>
+          </button>
         </div>
 
         {/* Bento Grid Dashboard */}
@@ -68,9 +88,9 @@ export default function TaxpayerDashboard() {
           <div className="md:col-span-4 bg-primary text-on-primary rounded-xl p-8 flex flex-col justify-between relative overflow-hidden shadow-xl">
             <div className="absolute -right-12 -top-12 w-48 h-48 bg-primary-container/30 rounded-full blur-3xl"></div>
             <div>
-              <span className="text-[10px] font-bold uppercase tracking-widest text-primary-fixed/60 mb-1 block">Total Liability</span>
+              <span className="text-[10px] font-bold uppercase tracking-widest text-primary-fixed/60 mb-1 block">Amount You Owe</span>
               <h3 className="text-4xl font-bold font-public-sans tracking-tighter">₦4,285,000.00</h3>
-              <p className="text-primary-fixed/80 text-xs mt-2">Due by November 30, 2023</p>
+              <p className="text-primary-fixed/80 text-xs mt-2">Finish payment by November 30, 2023</p>
             </div>
             <div className="mt-8">
               <button className="w-full bg-primary-fixed text-on-primary-fixed hover:bg-white py-3 rounded-lg font-bold flex items-center justify-center gap-2 transition-all active:scale-95 shadow-md">
@@ -82,7 +102,7 @@ export default function TaxpayerDashboard() {
           {/* Metrics Grid */}
           <div className="md:col-span-4 bg-surface-container-low rounded-xl p-6 relative border border-surface-container shadow-sm">
             <div className="absolute left-0 top-6 bottom-6 w-1 bg-surface-tint"></div>
-            <p className="text-[11px] font-bold uppercase tracking-[0.15em] text-on-surface-variant mb-2 font-public-sans">Assessments Raised</p>
+            <p className="text-[11px] font-bold uppercase tracking-[0.15em] text-on-surface-variant mb-2 font-public-sans">Taxes Calculated</p>
             <div className="flex items-end justify-between">
               <h4 className="text-3xl font-bold font-public-sans text-on-surface tracking-tight">12</h4>
               <span className="text-secondary font-bold text-xs flex items-center gap-1 bg-secondary-container px-2 py-1 rounded">
@@ -93,7 +113,7 @@ export default function TaxpayerDashboard() {
 
           <div className="md:col-span-4 bg-surface-container-low rounded-xl p-6 relative border border-surface-container shadow-sm">
             <div className="absolute left-0 top-6 bottom-6 w-1 bg-surface-tint"></div>
-            <p className="text-[11px] font-bold uppercase tracking-[0.15em] text-on-surface-variant mb-2 font-public-sans">Pending Objections</p>
+            <p className="text-[11px] font-bold uppercase tracking-[0.15em] text-on-surface-variant mb-2 font-public-sans">Ongoing Disputes</p>
             <div className="flex items-end justify-between">
               <h4 className="text-3xl font-bold font-public-sans text-on-surface tracking-tight">02</h4>
               <span className="text-tertiary font-bold text-xs flex items-center gap-1 bg-tertiary-fixed px-2 py-1 rounded">
@@ -114,7 +134,7 @@ export default function TaxpayerDashboard() {
           {/* Recent Activity Table */}
           <div className="md:col-span-12 bg-surface-container-lowest rounded-xl overflow-hidden mt-2 border border-surface-container shadow-sm">
             <div className="px-8 py-6 flex flex-col sm:flex-row sm:items-center justify-between border-b border-surface-container gap-4 bg-surface-bright">
-              <h3 className="text-lg font-bold font-public-sans text-on-surface">Recent Transactions & Filings</h3>
+              <h3 className="text-lg font-bold font-public-sans text-on-surface">Recent Payments</h3>
               <button className="text-sm font-bold text-primary flex items-center gap-1 hover:underline">
                 View Full Ledger <span className="material-symbols-outlined text-sm">chevron_right</span>
               </button>

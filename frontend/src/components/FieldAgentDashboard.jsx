@@ -11,8 +11,8 @@ export default function FieldAgentDashboard() {
                 <span className="material-symbols-outlined text-tertiary-fixed">cloud_off</span>
               </div>
               <div>
-                <p className="font-label font-bold text-sm tracking-wide uppercase">Offline Mode</p>
-                <p className="text-xs opacity-90">14 pending records waiting for sync</p>
+                <p className="font-label font-bold text-sm tracking-wide uppercase">No Internet</p>
+                <p className="text-xs opacity-90">14 records saved on phone</p>
               </div>
             </div>
             <button className="bg-on-tertiary-container text-tertiary-container px-4 py-1.5 rounded-full font-label text-xs font-bold uppercase tracking-widest press-in">
@@ -35,25 +35,25 @@ export default function FieldAgentDashboard() {
 
         {/* Quick Actions: Lithic Sheen */}
         <section className="mb-8">
-          <h2 className="font-headline font-bold text-on-surface mb-4 px-1">Quick Actions</h2>
+          <h2 className="font-headline font-bold text-on-surface mb-4 px-1">Your Main Jobs</h2>
           <div className="grid grid-cols-1 gap-3">
             <button className="lithic-gradient text-white p-5 rounded-xl flex items-center gap-4 shadow-[0_4px_20px_rgba(0,70,77,0.15)] press-in w-full">
               <div className="bg-white/10 p-3 rounded-lg">
                 <span className="material-symbols-outlined">person_add</span>
               </div>
               <div className="text-left">
-                <span className="block font-bold text-lg leading-tight">New Registration</span>
-                <span className="text-sm opacity-80">Onboard new taxpayer in field</span>
+                <span className="block font-bold text-lg leading-tight">Register Someone</span>
+                <span className="text-sm opacity-80">Add a new person now</span>
               </div>
             </button>
             <div className="grid grid-cols-2 gap-3">
               <button className="bg-surface-container-high text-primary p-4 rounded-xl flex flex-col items-center justify-center gap-2 press-in">
                 <span className="material-symbols-outlined text-3xl">payments</span>
-                <span className="font-label font-bold text-xs uppercase tracking-tighter">Record Payment</span>
+                <span className="font-label font-bold text-xs uppercase tracking-tighter">Collect Money</span>
               </button>
               <button className="bg-surface-container-high text-primary p-4 rounded-xl flex flex-col items-center justify-center gap-2 press-in">
                 <span className="material-symbols-outlined text-3xl">qr_code_scanner</span>
-                <span className="font-label font-bold text-xs uppercase tracking-tighter">Scan QR</span>
+                <span className="font-label font-bold text-xs uppercase tracking-tighter">Scan Code</span>
               </button>
             </div>
           </div>
@@ -62,7 +62,7 @@ export default function FieldAgentDashboard() {
         {/* Recent Ledger Activity */}
         <section className="mb-4">
           <div className="flex justify-between items-center mb-4 px-1">
-            <h2 className="font-headline font-bold text-on-surface">Recent Ledger</h2>
+            <h2 className="font-headline font-bold text-on-surface">Recent Activity</h2>
             <button className="text-primary text-sm font-bold">View All</button>
           </div>
           <div className="bg-surface-container-low rounded-2xl overflow-hidden">

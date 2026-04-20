@@ -19,9 +19,9 @@ export default function AdminLayout() {
         </div>
         <div className="flex items-center gap-6">
           <div className="hidden md:flex items-center gap-8">
-            <NavLink to="/admin" end className={({ isActive }) => isActive ? "text-cyan-700 font-semibold border-b-2 border-cyan-700" : "text-slate-500 font-medium hover:bg-slate-200/50 transition-colors px-2 py-1 rounded"}>Analytics</NavLink>
-            <NavLink to="/admin/revenue-config" className={({ isActive }) => isActive ? "text-cyan-700 font-semibold border-b-2 border-cyan-700" : "text-slate-500 font-medium hover:bg-slate-200/50 transition-colors px-2 py-1 rounded"}>Revenue Heads</NavLink>
-            <NavLink to="/admin/taxpayers" className={({ isActive }) => isActive ? "text-cyan-700 font-semibold border-b-2 border-cyan-700" : "text-slate-500 font-medium hover:bg-slate-200/50 transition-colors px-2 py-1 rounded"}>Taxpayers</NavLink>
+            <NavLink to="/admin" end className={({ isActive }) => isActive ? "text-cyan-700 font-semibold border-b-2 border-cyan-700" : "text-slate-500 font-medium hover:bg-slate-200/50 transition-colors px-2 py-1 rounded"}>Overview</NavLink>
+            <NavLink to="/admin/revenue-config" className={({ isActive }) => isActive ? "text-cyan-700 font-semibold border-b-2 border-cyan-700" : "text-slate-500 font-medium hover:bg-slate-200/50 transition-colors px-2 py-1 rounded"}>Tax Types</NavLink>
+            <NavLink to="/admin/taxpayers" className={({ isActive }) => isActive ? "text-cyan-700 font-semibold border-b-2 border-cyan-700" : "text-slate-500 font-medium hover:bg-slate-200/50 transition-colors px-2 py-1 rounded"}>Users</NavLink>
           </div>
           <div className="flex items-center gap-3">
             <button className="material-symbols-outlined text-slate-500 hover:bg-slate-200/50 p-2 rounded transition-colors">sync</button>
@@ -40,15 +40,15 @@ export default function AdminLayout() {
         <div className="flex-1 space-y-1">
           <NavLink to="/admin" end className={({ isActive }) => `flex items-center gap-3 px-6 py-3 transition-all ${isActive ? "bg-cyan-100/50 text-cyan-900 border-r-4 border-cyan-800" : "text-slate-600 hover:text-cyan-800 hover:bg-slate-200"}`}>
             <span className="material-symbols-outlined">leaderboard</span>
-            Analytics
+            Overview
           </NavLink>
           <NavLink to="/admin/revenue-config" className={({ isActive }) => `flex items-center gap-3 px-6 py-3 transition-all ${isActive ? "bg-cyan-100/50 text-cyan-900 border-r-4 border-cyan-800" : "text-slate-600 hover:text-cyan-800 hover:bg-slate-200"}`}>
             <span className="material-symbols-outlined">account_tree</span>
-            Revenue Heads
+            Tax Types
           </NavLink>
           <NavLink to="/admin/taxpayers" className={({ isActive }) => `flex items-center gap-3 px-6 py-3 transition-all ${isActive ? "bg-cyan-100/50 text-cyan-900 border-r-4 border-cyan-800" : "text-slate-600 hover:text-cyan-800 hover:bg-slate-200"}`}>
             <span className="material-symbols-outlined">group</span>
-            Taxpayers
+            Users
           </NavLink>
           <NavLink to="/admin/properties" className={({ isActive }) => `flex items-center gap-3 px-6 py-3 transition-all ${isActive ? "bg-cyan-100/50 text-cyan-900 border-r-4 border-cyan-800" : "text-slate-600 hover:text-cyan-800 hover:bg-slate-200"}`}>
             <span className="material-symbols-outlined">home_work</span>
@@ -60,7 +60,7 @@ export default function AdminLayout() {
           </NavLink>
           <NavLink to="/admin/audit-logs" className={({ isActive }) => `flex items-center gap-3 px-6 py-3 transition-all ${isActive ? "bg-cyan-100/50 text-cyan-900 border-r-4 border-cyan-800" : "text-slate-600 hover:text-cyan-800 hover:bg-slate-200"}`}>
             <span className="material-symbols-outlined">history_edu</span>
-            Audit Logs
+            Activity Logs
           </NavLink>
         </div>
         <div className="px-6 py-4 border-t border-slate-200/50">
