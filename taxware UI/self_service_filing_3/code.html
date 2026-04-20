@@ -1,0 +1,371 @@
+<!DOCTYPE html>
+
+<html class="light" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>TaxTrack NG | PAYE Self-Service</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Public+Sans:wght@400;600;700;800;900&amp;family=Inter:wght@400;500;600;700&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+      tailwind.config = {
+        darkMode: "class",
+        theme: {
+          extend: {
+            "colors": {
+                    "background": "#f8f9fa",
+                    "primary-container": "#135f67",
+                    "on-secondary-fixed-variant": "#354a53",
+                    "on-surface": "#191c1d",
+                    "surface-container": "#edeeef",
+                    "secondary-container": "#cfe6f2",
+                    "on-tertiary": "#ffffff",
+                    "on-secondary-fixed": "#071e27",
+                    "surface-container-highest": "#e1e3e4",
+                    "on-tertiary-fixed-variant": "#6b3a16",
+                    "primary": "#00464d",
+                    "surface-container-low": "#f3f4f5",
+                    "secondary-fixed": "#cfe6f2",
+                    "secondary": "#4c616c",
+                    "primary-fixed": "#abeef7",
+                    "outline": "#6f7979",
+                    "on-error": "#ffffff",
+                    "tertiary": "#62330f",
+                    "secondary-fixed-dim": "#b4cad6",
+                    "surface": "#f8f9fa",
+                    "primary-fixed-dim": "#90d1da",
+                    "surface-tint": "#206770",
+                    "surface-container-high": "#e7e8e9",
+                    "on-tertiary-fixed": "#311300",
+                    "on-primary-fixed-variant": "#004f56",
+                    "on-primary-container": "#95d6df",
+                    "error-container": "#ffdad6",
+                    "surface-variant": "#e1e3e4",
+                    "inverse-on-surface": "#f0f1f2",
+                    "error": "#ba1a1a",
+                    "on-secondary": "#ffffff",
+                    "on-surface-variant": "#3f4949",
+                    "tertiary-container": "#7e4924",
+                    "on-background": "#191c1d",
+                    "on-primary": "#ffffff",
+                    "on-primary-fixed": "#001f23",
+                    "surface-container-lowest": "#ffffff",
+                    "tertiary-fixed-dim": "#ffb688",
+                    "surface-bright": "#f8f9fa",
+                    "tertiary-fixed": "#ffdbc7",
+                    "inverse-primary": "#90d1da",
+                    "outline-variant": "#bec8c9",
+                    "on-error-container": "#93000a",
+                    "inverse-surface": "#2e3132",
+                    "on-secondary-container": "#526772",
+                    "surface-dim": "#d9dadb",
+                    "on-tertiary-container": "#ffbe95"
+            },
+            "borderRadius": {
+                    "DEFAULT": "0.125rem",
+                    "lg": "0.25rem",
+                    "xl": "0.5rem",
+                    "full": "0.75rem"
+            },
+            "fontFamily": {
+                    "headline": ["Public Sans"],
+                    "body": ["Inter"],
+                    "label": ["Inter"]
+            }
+          },
+        },
+      }
+    </script>
+<style>
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+            vertical-align: middle;
+        }
+        .tonal-sculpting {
+            background: linear-gradient(180deg, #f8f9fa 0%, #f3f4f5 100%);
+        }
+        .lithic-cta {
+            background: linear-gradient(135deg, #00464d 0%, #135f67 100%);
+        }
+        .ghost-border {
+            border-bottom: 2px solid rgba(190, 200, 201, 0.15);
+        }
+    </style>
+</head>
+<body class="bg-surface font-body text-on-surface flex min-h-screen">
+<!-- SideNavBar (Authority Source: JSON) -->
+<aside class="h-screen w-64 fixed left-0 top-0 bg-slate-100 dark:bg-cyan-950/80 flex flex-col py-4 z-40">
+<div class="px-6 mb-8">
+<h1 class="text-lg font-black text-cyan-900 dark:text-cyan-100 uppercase tracking-tighter">Admin Console</h1>
+<p class="text-[10px] uppercase tracking-[0.2em] text-slate-500 font-bold">Sovereign Ledger</p>
+</div>
+<nav class="flex-grow space-y-1">
+<a class="flex items-center px-6 py-3 space-x-3 text-slate-600 dark:text-slate-400 hover:text-cyan-800 hover:bg-slate-200 transition-all" href="#">
+<span class="material-symbols-outlined" data-icon="leaderboard">leaderboard</span>
+<span class="font-inter text-sm font-medium">Analytics</span>
+</a>
+<a class="flex items-center px-6 py-3 space-x-3 text-slate-600 dark:text-slate-400 hover:text-cyan-800 hover:bg-slate-200 transition-all" href="#">
+<span class="material-symbols-outlined" data-icon="account_tree">account_tree</span>
+<span class="font-inter text-sm font-medium">Revenue Heads</span>
+</a>
+<!-- Active State: Taxpayers -->
+<a class="flex items-center px-6 py-3 space-x-3 bg-cyan-100/50 dark:bg-cyan-800/40 text-cyan-900 dark:text-cyan-50 border-r-4 border-cyan-800 transition-all" href="#">
+<span class="material-symbols-outlined" data-icon="group" style="font-variation-settings: 'FILL' 1;">group</span>
+<span class="font-inter text-sm font-medium">Taxpayers</span>
+</a>
+<a class="flex items-center px-6 py-3 space-x-3 text-slate-600 dark:text-slate-400 hover:text-cyan-800 hover:bg-slate-200 transition-all" href="#">
+<span class="material-symbols-outlined" data-icon="history_edu">history_edu</span>
+<span class="font-inter text-sm font-medium">Audit Logs</span>
+</a>
+<a class="flex items-center px-6 py-3 space-x-3 text-slate-600 dark:text-slate-400 hover:text-cyan-800 hover:bg-slate-200 transition-all" href="#">
+<span class="material-symbols-outlined" data-icon="settings">settings</span>
+<span class="font-inter text-sm font-medium">Settings</span>
+</a>
+</nav>
+<div class="mt-auto px-6 pt-4 border-t border-slate-200/50">
+<a class="flex items-center space-x-3 text-slate-600 hover:text-error transition-colors" href="#">
+<span class="material-symbols-outlined" data-icon="logout">logout</span>
+<span class="font-inter text-sm font-medium">Logout</span>
+</a>
+</div>
+</aside>
+<!-- Main Content Canvas -->
+<main class="flex-grow ml-64 bg-surface min-h-screen">
+<!-- TopAppBar (Authority Source: JSON) -->
+<header class="fixed top-0 left-64 right-0 h-16 bg-slate-50 dark:bg-cyan-950 flex justify-between items-center px-8 z-30">
+<div class="flex items-center space-x-4">
+<span class="text-xl font-bold tracking-tighter text-cyan-900 dark:text-cyan-50 font-headline">TaxTrack NG</span>
+<span class="h-4 w-[1px] bg-outline-variant/30"></span>
+<span class="text-sm font-medium text-on-surface-variant/70 uppercase tracking-widest">Self-Service Portal</span>
+</div>
+<div class="flex items-center space-x-6">
+<div class="relative">
+<span class="material-symbols-outlined absolute left-3 top-1/2 -translate-y-1/2 text-slate-400 text-sm">search</span>
+<input class="bg-slate-100 border-none rounded-lg pl-10 pr-4 py-1.5 text-xs w-64 focus:ring-2 focus:ring-primary/20" placeholder="Search records..." type="text"/>
+</div>
+<div class="flex items-center space-x-4 text-cyan-900 dark:text-cyan-100">
+<button class="hover:bg-slate-200/50 p-2 rounded-full transition-colors"><span class="material-symbols-outlined" data-icon="sync">sync</span></button>
+<button class="hover:bg-slate-200/50 p-2 rounded-full transition-colors relative">
+<span class="material-symbols-outlined" data-icon="notifications">notifications</span>
+<span class="absolute top-2 right-2 w-2 h-2 bg-error rounded-full border-2 border-slate-50"></span>
+</button>
+<button class="hover:bg-slate-200/50 p-2 rounded-full transition-colors"><span class="material-symbols-outlined" data-icon="account_circle">account_circle</span></button>
+</div>
+</div>
+</header>
+<!-- View Content -->
+<div class="mt-16 p-8 space-y-8">
+<!-- Page Header -->
+<div class="flex justify-between items-end">
+<div>
+<h2 class="text-3xl font-bold font-headline text-primary tracking-tight">PAYE Monthly Filing</h2>
+<p class="text-on-surface-variant mt-1">Submit payroll schedules and calculate statutory liabilities for June 2024.</p>
+</div>
+<div class="flex space-x-3">
+<button class="px-5 py-2.5 rounded-lg font-semibold text-sm bg-surface-container-high text-primary hover:bg-surface-container-highest transition-colors">
+                        Download Template
+                    </button>
+<button class="px-5 py-2.5 rounded-lg font-semibold text-sm lithic-cta text-white shadow-lg shadow-primary/10">
+                        Upload Schedule
+                    </button>
+</div>
+</div>
+<!-- Bento Grid Stats -->
+<div class="grid grid-cols-1 md:grid-cols-4 gap-6">
+<div class="bg-surface-container-lowest p-6 rounded-xl border-l-4 border-surface-tint shadow-sm">
+<p class="text-[10px] font-bold text-on-surface-variant uppercase tracking-widest mb-2">Total Employees</p>
+<h3 class="text-2xl font-bold font-headline text-primary">1,248</h3>
+<p class="text-xs text-secondary mt-1 flex items-center">
+<span class="material-symbols-outlined text-sm mr-1">trending_up</span> +12 from last month
+                    </p>
+</div>
+<div class="bg-surface-container-lowest p-6 rounded-xl border-l-4 border-surface-tint shadow-sm">
+<p class="text-[10px] font-bold text-on-surface-variant uppercase tracking-widest mb-2">Gross Payroll</p>
+<h3 class="text-2xl font-bold font-headline text-primary">₦42,850,000</h3>
+<p class="text-xs text-on-surface-variant mt-1">Base salary &amp; allowances</p>
+</div>
+<div class="bg-surface-container-lowest p-6 rounded-xl border-l-4 border-tertiary shadow-sm">
+<p class="text-[10px] font-bold text-on-surface-variant uppercase tracking-widest mb-2">Calculated Tax (PAYE)</p>
+<h3 class="text-2xl font-bold font-headline text-tertiary">₦4,285,000</h3>
+<p class="text-xs text-on-surface-variant mt-1">Statutory deduction</p>
+</div>
+<div class="bg-surface-container-lowest p-6 rounded-xl border-l-4 border-primary-fixed-dim shadow-sm">
+<p class="text-[10px] font-bold text-on-surface-variant uppercase tracking-widest mb-2">Filing Status</p>
+<div class="flex items-center mt-2 text-primary">
+<span class="material-symbols-outlined mr-2" data-icon="pending">pending</span>
+<span class="text-sm font-bold">Draft / In Review</span>
+</div>
+</div>
+</div>
+<!-- Main Interactive Section: Two Column -->
+<div class="grid grid-cols-1 lg:grid-cols-3 gap-8">
+<!-- Schedule Table -->
+<div class="lg:col-span-2 bg-surface-container-lowest rounded-2xl overflow-hidden shadow-sm">
+<div class="px-6 py-4 bg-surface-container-high flex justify-between items-center">
+<h4 class="font-bold text-sm uppercase tracking-wider text-on-surface-variant">Payroll Preview</h4>
+<span class="text-xs text-on-surface-variant font-medium">Showing 5 of 1,248 records</span>
+</div>
+<div class="overflow-x-auto">
+<table class="w-full text-left border-collapse">
+<thead>
+<tr class="bg-surface-container-low border-b border-outline-variant/10">
+<th class="px-6 py-4 text-[11px] font-bold uppercase text-on-surface-variant tracking-widest">Employee ID</th>
+<th class="px-6 py-4 text-[11px] font-bold uppercase text-on-surface-variant tracking-widest">Full Name</th>
+<th class="px-6 py-4 text-[11px] font-bold uppercase text-on-surface-variant tracking-widest">Gross Income</th>
+<th class="px-6 py-4 text-[11px] font-bold uppercase text-on-surface-variant tracking-widest">Tax (PAYE)</th>
+<th class="px-6 py-4 text-[11px] font-bold uppercase text-on-surface-variant tracking-widest">Status</th>
+</tr>
+</thead>
+<tbody class="divide-y divide-outline-variant/10">
+<tr class="hover:bg-primary/5 transition-colors">
+<td class="px-6 py-4 font-mono text-xs text-primary font-bold">EMP-9021</td>
+<td class="px-6 py-4 text-sm font-medium text-on-surface">Adeola Benson</td>
+<td class="px-6 py-4 text-sm font-semibold">₦450,000.00</td>
+<td class="px-6 py-4 text-sm font-semibold text-tertiary">₦45,000.00</td>
+<td class="px-6 py-4"><span class="px-2 py-1 rounded bg-secondary-container text-on-secondary-container text-[10px] font-bold uppercase">Verified</span></td>
+</tr>
+<tr class="bg-surface-container-low/30 hover:bg-primary/5 transition-colors">
+<td class="px-6 py-4 font-mono text-xs text-primary font-bold">EMP-8842</td>
+<td class="px-6 py-4 text-sm font-medium text-on-surface">Chinonso Okafor</td>
+<td class="px-6 py-4 text-sm font-semibold">₦620,000.00</td>
+<td class="px-6 py-4 text-sm font-semibold text-tertiary">₦62,000.00</td>
+<td class="px-6 py-4"><span class="px-2 py-1 rounded bg-secondary-container text-on-secondary-container text-[10px] font-bold uppercase">Verified</span></td>
+</tr>
+<tr class="hover:bg-primary/5 transition-colors">
+<td class="px-6 py-4 font-mono text-xs text-primary font-bold">EMP-7710</td>
+<td class="px-6 py-4 text-sm font-medium text-on-surface">Ibrahim Musa</td>
+<td class="px-6 py-4 text-sm font-semibold">₦210,000.00</td>
+<td class="px-6 py-4 text-sm font-semibold text-tertiary">₦21,000.00</td>
+<td class="px-6 py-4"><span class="px-2 py-1 rounded bg-secondary-container text-on-secondary-container text-[10px] font-bold uppercase">Verified</span></td>
+</tr>
+<tr class="bg-surface-container-low/30 hover:bg-primary/5 transition-colors">
+<td class="px-6 py-4 font-mono text-xs text-primary font-bold">EMP-9112</td>
+<td class="px-6 py-4 text-sm font-medium text-on-surface">Sarah Williams</td>
+<td class="px-6 py-4 text-sm font-semibold">₦380,000.00</td>
+<td class="px-6 py-4 text-sm font-semibold text-tertiary">₦38,000.00</td>
+<td class="px-6 py-4"><span class="px-2 py-1 rounded bg-secondary-container text-on-secondary-container text-[10px] font-bold uppercase">Verified</span></td>
+</tr>
+<tr class="hover:bg-primary/5 transition-colors">
+<td class="px-6 py-4 font-mono text-xs text-primary font-bold">EMP-5431</td>
+<td class="px-6 py-4 text-sm font-medium text-on-surface">David Adeleke</td>
+<td class="px-6 py-4 text-sm font-semibold">₦1,200,000.00</td>
+<td class="px-6 py-4 text-sm font-semibold text-tertiary">₦120,000.00</td>
+<td class="px-6 py-4"><span class="px-2 py-1 rounded bg-secondary-container text-on-secondary-container text-[10px] font-bold uppercase">Verified</span></td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+<!-- Payment Action Card -->
+<div class="space-y-6">
+<div class="bg-primary text-white p-8 rounded-2xl shadow-xl relative overflow-hidden lithic-cta">
+<div class="relative z-10">
+<h4 class="text-sm font-bold uppercase tracking-[0.2em] opacity-80 mb-4">Liability Summary</h4>
+<div class="space-y-4">
+<div class="flex justify-between items-center border-b border-white/10 pb-3">
+<span class="text-sm opacity-90">PAYE Liability</span>
+<span class="text-xl font-bold">₦4,285,000</span>
+</div>
+<div class="flex justify-between items-center border-b border-white/10 pb-3">
+<span class="text-sm opacity-90">Arrears/Interests</span>
+<span class="text-xl font-bold">₦0.00</span>
+</div>
+<div class="flex justify-between items-center pt-2">
+<span class="text-lg font-headline font-bold">Total Due</span>
+<span class="text-3xl font-headline font-black">₦4,285,000</span>
+</div>
+</div>
+<button class="w-full mt-8 py-4 bg-white text-primary rounded-xl font-bold text-lg hover:bg-primary-fixed transition-transform active:scale-95 shadow-lg">
+                                Make Payment
+                            </button>
+<p class="text-[10px] text-center mt-4 opacity-60 uppercase tracking-widest font-bold">Secure Bank Transfer or Card Payment</p>
+</div>
+<!-- Decorative element -->
+<div class="absolute -right-12 -bottom-12 w-48 h-48 bg-white/5 rounded-full blur-3xl"></div>
+</div>
+<div class="bg-surface-container-low p-6 rounded-2xl">
+<div class="flex items-center space-x-3 mb-4">
+<span class="material-symbols-outlined text-tertiary" data-icon="info">info</span>
+<h5 class="text-sm font-bold text-primary">Submission Guidelines</h5>
+</div>
+<ul class="space-y-3">
+<li class="text-xs text-on-surface-variant leading-relaxed">
+                                • Ensure all employee Tax IDs are valid to avoid rejection.
+                            </li>
+<li class="text-xs text-on-surface-variant leading-relaxed">
+                                • Late filing attracts a penalty of ₦500,000 per month of default.
+                            </li>
+<li class="text-xs text-on-surface-variant leading-relaxed">
+                                • Payment must be completed before the 10th of every month.
+                            </li>
+</ul>
+</div>
+</div>
+</div>
+<!-- Historical Context (Bottom Grid) -->
+<div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+<div class="bg-surface-container-lowest p-6 rounded-2xl shadow-sm">
+<h4 class="font-headline font-bold text-primary mb-6 flex items-center">
+<span class="material-symbols-outlined mr-2">history</span> Filing History
+                    </h4>
+<div class="space-y-4">
+<div class="flex items-center justify-between p-3 hover:bg-surface-container transition-colors rounded-lg">
+<div class="flex items-center space-x-4">
+<div class="w-10 h-10 rounded bg-primary/10 flex items-center justify-center text-primary">
+<span class="material-symbols-outlined">description</span>
+</div>
+<div>
+<p class="text-sm font-bold">May 2024</p>
+<p class="text-[10px] uppercase text-on-surface-variant">Completed • 08 May</p>
+</div>
+</div>
+<span class="text-sm font-bold text-primary">₦4,120,500</span>
+</div>
+<div class="flex items-center justify-between p-3 hover:bg-surface-container transition-colors rounded-lg">
+<div class="flex items-center space-x-4">
+<div class="w-10 h-10 rounded bg-primary/10 flex items-center justify-center text-primary">
+<span class="material-symbols-outlined">description</span>
+</div>
+<div>
+<p class="text-sm font-bold">April 2024</p>
+<p class="text-[10px] uppercase text-on-surface-variant">Completed • 05 April</p>
+</div>
+</div>
+<span class="text-sm font-bold text-primary">₦4,050,000</span>
+</div>
+</div>
+</div>
+<div class="relative rounded-2xl overflow-hidden group h-full">
+<img class="absolute inset-0 w-full h-full object-cover transition-transform duration-700 group-hover:scale-105" data-alt="Modern professional workspace with laptop and architectural blueprints, natural sunlight, corporate government office aesthetic" src="https://lh3.googleusercontent.com/aida-public/AB6AXuDFV0vXUASoXnSX5YAEErEEGBs6sR9lHJCsd9TM1DlSyiLyfCHiQqj_UGcWKHEv56pStKDTiZ7wFgYA8rOHH3kOg7SF_zFkR02yKd0vZ_6wBFBXEtPXGp2NQpPBvyMT9mmr1LfG1sGMqzsoMUJ2DTUTvaqzf_C7Yv-xPqpzdW9CT2WAvlyjmnf6hOrl7bkA6Gy3ReYaxvrBCKPEb4XWstw4BU6_fF4ezcK2SVUk6uuVrs9Pxvoi1cldc3tYaeel7qf8VliyQ7q8bS1a"/>
+<div class="absolute inset-0 bg-gradient-to-t from-primary/90 via-primary/40 to-transparent p-8 flex flex-col justify-end">
+<h4 class="text-white font-headline font-bold text-lg">Need Assistance?</h4>
+<p class="text-white/80 text-sm mt-2 mb-4">Our dedicated revenue support team is available 24/7 to help with your corporate tax inquiries.</p>
+<button class="w-fit px-6 py-2 bg-white/20 backdrop-blur-md border border-white/30 text-white font-bold rounded-lg text-xs uppercase tracking-widest hover:bg-white/30 transition-all">
+                            Live Chat Support
+                        </button>
+</div>
+</div>
+</div>
+</div>
+</main>
+<!-- Mobile Nav Anchor (Authority Source: JSON) -->
+<footer class="md:hidden fixed bottom-0 left-0 w-full bg-white dark:bg-cyan-950 flex justify-around items-center px-4 h-20 pb-safe z-50 rounded-t-xl border-t border-slate-100 dark:border-cyan-900 shadow-[0_-4px_20px_rgba(0,0,0,0.05)]">
+<a class="flex flex-col items-center justify-center text-slate-400 dark:text-cyan-700 transition-transform scale-95" href="#">
+<span class="material-symbols-outlined" data-icon="grid_view">grid_view</span>
+<span class="font-inter text-[11px] font-bold uppercase tracking-widest mt-1">Home</span>
+</a>
+<a class="flex flex-col items-center justify-center bg-cyan-100 dark:bg-cyan-800 text-cyan-900 dark:text-cyan-50 rounded-2xl px-5 py-1.5" href="#">
+<span class="material-symbols-outlined" data-icon="payments" style="font-variation-settings: 'FILL' 1;">payments</span>
+<span class="font-inter text-[11px] font-bold uppercase tracking-widest mt-1">Collect</span>
+</a>
+<a class="flex flex-col items-center justify-center text-slate-400 dark:text-cyan-700 transition-transform scale-95" href="#">
+<span class="material-symbols-outlined" data-icon="qr_code_scanner">qr_code_scanner</span>
+<span class="font-inter text-[11px] font-bold uppercase tracking-widest mt-1">Scanner</span>
+</a>
+<a class="flex flex-col items-center justify-center text-slate-400 dark:text-cyan-700 transition-transform scale-95" href="#">
+<span class="material-symbols-outlined" data-icon="cloud_sync">cloud_sync</span>
+<span class="font-inter text-[11px] font-bold uppercase tracking-widest mt-1">Sync</span>
+</a>
+</footer>
+</body></html>

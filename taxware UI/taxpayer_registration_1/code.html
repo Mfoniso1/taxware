@@ -1,0 +1,244 @@
+<!DOCTYPE html>
+
+<html class="light" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Sovereign Revenue - Taxpayer Registration</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Public+Sans:wght@400;600;700;800;900&amp;family=Inter:wght@400;500;600;700&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    "colors": {
+                        "background": "#f8f9fa",
+                        "primary-container": "#135f67",
+                        "on-secondary-fixed-variant": "#354a53",
+                        "on-surface": "#191c1d",
+                        "surface-container": "#edeeef",
+                        "secondary-container": "#cfe6f2",
+                        "on-tertiary": "#ffffff",
+                        "on-secondary-fixed": "#071e27",
+                        "surface-container-highest": "#e1e3e4",
+                        "on-tertiary-fixed-variant": "#6b3a16",
+                        "primary": "#00464d",
+                        "surface-container-low": "#f3f4f5",
+                        "secondary-fixed": "#cfe6f2",
+                        "secondary": "#4c616c",
+                        "primary-fixed": "#abeef7",
+                        "outline": "#6f7979",
+                        "on-error": "#ffffff",
+                        "tertiary": "#62330f",
+                        "secondary-fixed-dim": "#b4cad6",
+                        "surface": "#f8f9fa",
+                        "primary-fixed-dim": "#90d1da",
+                        "surface-tint": "#206770",
+                        "surface-container-high": "#e7e8e9",
+                        "on-tertiary-fixed": "#311300",
+                        "on-primary-fixed-variant": "#004f56",
+                        "on-primary-container": "#95d6df",
+                        "error-container": "#ffdad6",
+                        "surface-variant": "#e1e3e4",
+                        "inverse-on-surface": "#f0f1f2",
+                        "error": "#ba1a1a",
+                        "on-secondary": "#ffffff",
+                        "on-surface-variant": "#3f4949",
+                        "tertiary-container": "#7e4924",
+                        "on-background": "#191c1d",
+                        "on-primary": "#ffffff",
+                        "on-primary-fixed": "#001f23",
+                        "surface-container-lowest": "#ffffff",
+                        "tertiary-fixed-dim": "#ffb688",
+                        "surface-bright": "#f8f9fa",
+                        "tertiary-fixed": "#ffdbc7",
+                        "inverse-primary": "#90d1da",
+                        "outline-variant": "#bec8c9",
+                        "on-error-container": "#93000a",
+                        "inverse-surface": "#2e3132",
+                        "on-secondary-container": "#526772",
+                        "surface-dim": "#d9dadb",
+                        "on-tertiary-container": "#ffbe95"
+                    },
+                    "borderRadius": {
+                        "DEFAULT": "0.125rem",
+                        "lg": "0.25rem",
+                        "xl": "0.5rem",
+                        "full": "0.75rem"
+                    },
+                    "fontFamily": {
+                        "headline": ["Public Sans"],
+                        "body": ["Inter"],
+                        "label": ["Inter"]
+                    }
+                },
+            },
+        }
+    </script>
+<style>
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+        }
+        .lithic-gradient {
+            background: linear-gradient(135deg, #00464d 0%, #135f67 100%);
+        }
+        .ghost-border {
+            border-bottom: 2px solid #bec8c9;
+        }
+        .ghost-border:focus-within {
+            border-bottom-color: #00464d;
+        }
+    </style>
+<style>
+    body {
+      min-height: max(884px, 100dvh);
+    }
+  </style>
+  </head>
+<body class="bg-background text-on-surface font-body selection:bg-primary-fixed selection:text-on-primary-fixed">
+<!-- Top Navigation Bar -->
+<nav class="fixed top-0 w-full z-50 bg-slate-50 dark:bg-cyan-950 flex justify-between items-center px-6 h-16 w-full">
+<div class="flex items-center gap-3">
+<span class="material-symbols-outlined text-cyan-900 dark:text-cyan-50">arrow_back</span>
+<span class="text-xl font-bold tracking-tighter text-cyan-900 dark:text-cyan-50 font-headline">Sovereign Revenue</span>
+</div>
+<div class="flex items-center gap-4">
+<button class="hover:bg-slate-200/50 dark:hover:bg-cyan-800/50 transition-colors p-2 rounded-full">
+<span class="material-symbols-outlined text-cyan-900 dark:text-cyan-100" data-icon="sync">sync</span>
+</button>
+<button class="hover:bg-slate-200/50 dark:hover:bg-cyan-800/50 transition-colors p-2 rounded-full">
+<span class="material-symbols-outlined text-cyan-900 dark:text-cyan-100" data-icon="notifications">notifications</span>
+</button>
+<div class="h-8 w-8 rounded-full bg-surface-container-highest flex items-center justify-center">
+<span class="material-symbols-outlined text-cyan-900 dark:text-cyan-100" data-icon="account_circle">account_circle</span>
+</div>
+</div>
+</nav>
+<main class="pt-20 pb-28 px-4 max-w-md mx-auto">
+<!-- Progress/Status Bar -->
+<div class="mb-8 px-2">
+<div class="flex justify-between items-end mb-2">
+<div>
+<span class="block font-label text-[10px] uppercase tracking-[0.2em] text-on-surface-variant font-bold">Registration Phase</span>
+<h1 class="font-headline text-2xl font-extrabold text-primary tracking-tight">New Taxpayer</h1>
+</div>
+<div class="flex items-center gap-2 bg-secondary-fixed px-3 py-1 rounded-full">
+<span class="material-symbols-outlined text-sm" style="font-variation-settings: 'FILL' 1;">cloud_done</span>
+<span class="text-[10px] font-bold uppercase tracking-wider text-on-secondary-fixed">Online</span>
+</div>
+</div>
+<div class="h-1 w-full bg-surface-container rounded-full overflow-hidden">
+<div class="h-full bg-primary w-2/3"></div>
+</div>
+</div>
+<!-- Registration Form -->
+<div class="space-y-8">
+<!-- Section: Identity -->
+<section class="bg-surface-container-lowest p-6 rounded-xl space-y-6">
+<div class="flex items-center gap-2 border-l-4 border-surface-tint pl-3">
+<h2 class="font-label text-xs font-bold uppercase tracking-widest text-on-surface-variant">Personal Identity</h2>
+</div>
+<!-- Field: TIN -->
+<div class="space-y-1">
+<label class="block font-label text-sm font-medium text-on-surface-variant px-1" for="tin">TIN (Tax Identification Number)</label>
+<div class="ghost-border flex items-center bg-surface-variant/20 rounded-t-lg transition-all">
+<input class="w-full bg-transparent border-none focus:ring-0 py-4 px-4 text-on-surface placeholder:text-outline-variant font-medium" id="tin" name="tin" placeholder="If available" type="text"/>
+<span class="material-symbols-outlined text-outline-variant pr-4" data-icon="fingerprint">fingerprint</span>
+</div>
+</div>
+<!-- Field: Name -->
+<div class="space-y-1">
+<label class="block font-label text-sm font-medium text-on-surface-variant px-1" for="full_name">Full Legal Name</label>
+<div class="ghost-border flex items-center bg-surface-variant/20 rounded-t-lg transition-all">
+<input class="w-full bg-transparent border-none focus:ring-0 py-4 px-4 text-on-surface placeholder:text-outline-variant font-medium" id="full_name" name="full_name" placeholder="Enter as per ID" type="text"/>
+<span class="material-symbols-outlined text-outline-variant pr-4" data-icon="person">person</span>
+</div>
+</div>
+</section>
+<!-- Section: Business Details -->
+<section class="bg-surface-container-lowest p-6 rounded-xl space-y-6">
+<div class="flex items-center gap-2 border-l-4 border-surface-tint pl-3">
+<h2 class="font-label text-xs font-bold uppercase tracking-widest text-on-surface-variant">Business Information</h2>
+</div>
+<!-- Field: Business Type -->
+<div class="space-y-1">
+<label class="block font-label text-sm font-medium text-on-surface-variant px-1">Business Sector</label>
+<div class="ghost-border flex items-center bg-surface-variant/20 rounded-t-lg transition-all relative">
+<select class="w-full bg-transparent border-none focus:ring-0 py-4 px-4 text-on-surface font-medium appearance-none" id="business_type">
+<option selected="" value="informal">Informal Sector (Street Vendor/Market)</option>
+<option value="retail">Small Retail Store</option>
+<option value="services">Service Provider</option>
+<option value="artisan">Artisan/Handicraft</option>
+</select>
+<span class="material-symbols-outlined text-outline-variant absolute right-4 pointer-events-none" data-icon="storefront">storefront</span>
+</div>
+</div>
+<!-- Field: Address -->
+<div class="space-y-1">
+<label class="block font-label text-sm font-medium text-on-surface-variant px-1" for="address">Business Address / Location</label>
+<div class="ghost-border flex items-start bg-surface-variant/20 rounded-t-lg transition-all">
+<textarea class="w-full bg-transparent border-none focus:ring-0 py-4 px-4 text-on-surface placeholder:text-outline-variant font-medium resize-none" id="address" placeholder="Plot number, Street, Market stall ID" rows="3"></textarea>
+<span class="material-symbols-outlined text-outline-variant pr-4 pt-4" data-icon="location_on">location_on</span>
+</div>
+<button class="flex items-center gap-2 mt-2 px-1 text-primary font-bold text-xs">
+<span class="material-symbols-outlined text-sm" data-icon="my_location">my_location</span>
+                        CAPTURE GPS COORDINATES
+                    </button>
+</div>
+</section>
+<!-- Section: Biometrics -->
+<section class="bg-surface-container-lowest p-6 rounded-xl space-y-6">
+<div class="flex items-center gap-2 border-l-4 border-surface-tint pl-3">
+<h2 class="font-label text-xs font-bold uppercase tracking-widest text-on-surface-variant">Verification</h2>
+</div>
+<div class="grid grid-cols-2 gap-4">
+<button class="flex flex-col items-center justify-center p-6 border-2 border-dashed border-outline-variant rounded-xl hover:bg-surface-container-low transition-colors group">
+<div class="h-12 w-12 rounded-full bg-surface-variant flex items-center justify-center mb-3 group-hover:scale-110 transition-transform">
+<span class="material-symbols-outlined text-primary" data-icon="add_a_photo">add_a_photo</span>
+</div>
+<span class="font-label text-xs font-bold text-on-surface">Capture Photo</span>
+</button>
+<button class="flex flex-col items-center justify-center p-6 border-2 border-dashed border-outline-variant rounded-xl hover:bg-surface-container-low transition-colors group">
+<div class="h-12 w-12 rounded-full bg-surface-variant flex items-center justify-center mb-3 group-hover:scale-110 transition-transform">
+<span class="material-symbols-outlined text-primary" data-icon="fingerprint">fingerprint</span>
+</div>
+<span class="font-label text-xs font-bold text-on-surface">Biometrics</span>
+</button>
+</div>
+<div class="bg-tertiary-container/10 p-4 rounded-lg flex gap-3">
+<span class="material-symbols-outlined text-tertiary" data-icon="info">info</span>
+<p class="text-xs text-on-surface-variant leading-relaxed">Ensure the taxpayer's face is clearly visible with neutral lighting. Biometrics require a clean surface scan.</p>
+</div>
+</section>
+<!-- Action Area -->
+<div class="pt-4 pb-12">
+<button class="w-full lithic-gradient text-on-primary font-headline font-bold py-5 rounded-full shadow-[0_12px_24px_rgba(0,70,77,0.2)] flex items-center justify-center gap-3 active:scale-95 transition-transform">
+<span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 1;">how_to_reg</span>
+                    COMPLETE REGISTRATION
+                </button>
+<p class="text-center text-[11px] text-outline mt-4 font-medium">Record will be locally encrypted and synced to Sovereign Ledger</p>
+</div>
+</div>
+</main>
+<!-- Bottom Navigation Bar -->
+<nav class="fixed bottom-0 left-0 w-full flex justify-around items-center px-4 h-20 pb-safe bg-white dark:bg-cyan-950 z-50 rounded-t-xl border-t border-slate-100 dark:border-cyan-900 shadow-[0_-4px_20px_rgba(0,0,0,0.05)]">
+<button class="flex flex-col items-center justify-center text-slate-400 dark:text-cyan-700 active:scale-95 duration-100 ease-out">
+<span class="material-symbols-outlined" data-icon="grid_view">grid_view</span>
+<span class="font-inter text-[11px] font-bold uppercase tracking-widest mt-1">Home</span>
+</button>
+<button class="flex flex-col items-center justify-center bg-cyan-100 dark:bg-cyan-800 text-cyan-900 dark:text-cyan-50 rounded-2xl px-5 py-1.5 active:scale-95 duration-100 ease-out">
+<span class="material-symbols-outlined" data-icon="payments" style="font-variation-settings: 'FILL' 1;">payments</span>
+<span class="font-inter text-[11px] font-bold uppercase tracking-widest mt-1">Collect</span>
+</button>
+<button class="flex flex-col items-center justify-center text-slate-400 dark:text-cyan-700 active:scale-95 duration-100 ease-out">
+<span class="material-symbols-outlined" data-icon="qr_code_scanner">qr_code_scanner</span>
+<span class="font-inter text-[11px] font-bold uppercase tracking-widest mt-1">Scanner</span>
+</button>
+<button class="flex flex-col items-center justify-center text-slate-400 dark:text-cyan-700 active:scale-95 duration-100 ease-out">
+<span class="material-symbols-outlined" data-icon="cloud_sync">cloud_sync</span>
+<span class="font-inter text-[11px] font-bold uppercase tracking-widest mt-1">Sync</span>
+</button>
+</nav>
+</body></html>

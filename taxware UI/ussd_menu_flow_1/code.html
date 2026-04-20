@@ -1,0 +1,342 @@
+<!DOCTYPE html>
+
+<html class="light" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Sovereign Revenue - USSD Menu Flow</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Public+Sans:wght@400;600;700;800;900&amp;family=Inter:wght@400;500;600;700&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    "colors": {
+                        "background": "#f8f9fa",
+                        "primary-container": "#135f67",
+                        "on-secondary-fixed-variant": "#354a53",
+                        "on-surface": "#191c1d",
+                        "surface-container": "#edeeef",
+                        "secondary-container": "#cfe6f2",
+                        "on-tertiary": "#ffffff",
+                        "on-secondary-fixed": "#071e27",
+                        "surface-container-highest": "#e1e3e4",
+                        "on-tertiary-fixed-variant": "#6b3a16",
+                        "primary": "#00464d",
+                        "surface-container-low": "#f3f4f5",
+                        "secondary-fixed": "#cfe6f2",
+                        "secondary": "#4c616c",
+                        "primary-fixed": "#abeef7",
+                        "outline": "#6f7979",
+                        "on-error": "#ffffff",
+                        "tertiary": "#62330f",
+                        "secondary-fixed-dim": "#b4cad6",
+                        "surface": "#f8f9fa",
+                        "primary-fixed-dim": "#90d1da",
+                        "surface-tint": "#206770",
+                        "surface-container-high": "#e7e8e9",
+                        "on-tertiary-fixed": "#311300",
+                        "on-primary-fixed-variant": "#004f56",
+                        "on-primary-container": "#95d6df",
+                        "error-container": "#ffdad6",
+                        "surface-variant": "#e1e3e4",
+                        "inverse-on-surface": "#f0f1f2",
+                        "error": "#ba1a1a",
+                        "on-secondary": "#ffffff",
+                        "on-surface-variant": "#3f4949",
+                        "tertiary-container": "#7e4924",
+                        "on-background": "#191c1d",
+                        "on-primary": "#ffffff",
+                        "on-primary-fixed": "#001f23",
+                        "surface-container-lowest": "#ffffff",
+                        "tertiary-fixed-dim": "#ffb688",
+                        "surface-bright": "#f8f9fa",
+                        "tertiary-fixed": "#ffdbc7",
+                        "inverse-primary": "#90d1da",
+                        "outline-variant": "#bec8c9",
+                        "on-error-container": "#93000a",
+                        "inverse-surface": "#2e3132",
+                        "on-secondary-container": "#526772",
+                        "surface-dim": "#d9dadb",
+                        "on-tertiary-container": "#ffbe95"
+                    },
+                    "borderRadius": {
+                        "DEFAULT": "0.125rem",
+                        "lg": "0.25rem",
+                        "xl": "0.5rem",
+                        "full": "0.75rem"
+                    },
+                    "fontFamily": {
+                        "headline": ["Public Sans"],
+                        "body": ["Inter"],
+                        "label": ["Inter"]
+                    }
+                }
+            }
+        }
+    </script>
+<style>
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+        }
+        .ussd-screen {
+            box-shadow: inset 0 2px 4px 0 rgba(0, 0, 0, 0.05);
+        }
+    </style>
+<style>
+    body {
+      min-height: max(884px, 100dvh);
+    }
+  </style>
+  </head>
+<body class="bg-background text-on-surface font-body min-h-screen">
+<header class="fixed top-0 w-full z-50 bg-slate-50 dark:bg-cyan-950 flex justify-between items-center px-6 h-16 w-full transition-colors font-public-sans tracking-tight">
+<div class="text-xl font-bold tracking-tighter text-cyan-900 dark:text-cyan-50">
+            Sovereign Revenue
+        </div>
+<div class="flex items-center gap-4">
+<span class="material-symbols-outlined text-cyan-900 dark:text-cyan-100 p-2 hover:bg-slate-200/50 rounded-full cursor-pointer">sync</span>
+<span class="material-symbols-outlined text-cyan-900 dark:text-cyan-100 p-2 hover:bg-slate-200/50 rounded-full cursor-pointer">notifications</span>
+<span class="material-symbols-outlined text-cyan-900 dark:text-cyan-100 p-2 hover:bg-slate-200/50 rounded-full cursor-pointer">account_circle</span>
+</div>
+</header>
+<main class="pt-24 pb-20 px-4 md:px-12 max-w-7xl mx-auto">
+<div class="mb-12">
+<h1 class="font-headline text-4xl font-extrabold text-primary mb-2">USSD Protocol Design</h1>
+<p class="text-on-surface-variant font-medium">Informal Sector Revenue Collection: Dial-in Workflow (*829#)</p>
+</div>
+<div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
+<div class="flex flex-col gap-4">
+<div class="text-xs font-bold uppercase tracking-widest text-outline mb-1 px-2">Step 1: Welcome</div>
+<div class="relative w-full aspect-[9/19] bg-zinc-900 rounded-[2.5rem] p-4 border-[6px] border-zinc-800 shadow-2xl">
+<div class="absolute top-0 left-1/2 -translate-x-1/2 w-24 h-6 bg-zinc-800 rounded-b-xl"></div>
+<div class="h-full w-full bg-[#f0f0f0] rounded-[1.8rem] flex flex-col overflow-hidden ussd-screen">
+<div class="bg-zinc-200 px-4 py-2 flex justify-between items-center text-[10px] font-bold text-zinc-600">
+<span>10:42 AM</span>
+<span>4G+</span>
+</div>
+<div class="flex-grow p-6 flex items-center justify-center">
+<div class="bg-white p-5 rounded-lg shadow-sm border border-zinc-200 w-full font-mono text-sm leading-relaxed">
+<p class="mb-4">Welcome to Sovereign Revenue Ledger.</p>
+<p>1. Retrieve TIN</p>
+<p>2. Pay Local Tax</p>
+<p>3. Check Balance</p>
+<p>4. Agent Support</p>
+<div class="mt-4 pt-4 border-t border-zinc-100 flex gap-2">
+<div class="flex-grow h-8 bg-zinc-50 border border-zinc-300 px-2 flex items-center">1</div>
+<div class="bg-primary text-white px-3 py-1 text-xs flex items-center rounded">SEND</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class="flex flex-col gap-4">
+<div class="text-xs font-bold uppercase tracking-widest text-outline mb-1 px-2">Step 2: Identification</div>
+<div class="relative w-full aspect-[9/19] bg-zinc-900 rounded-[2.5rem] p-4 border-[6px] border-zinc-800 shadow-2xl">
+<div class="absolute top-0 left-1/2 -translate-x-1/2 w-24 h-6 bg-zinc-800 rounded-b-xl"></div>
+<div class="h-full w-full bg-[#f0f0f0] rounded-[1.8rem] flex flex-col overflow-hidden ussd-screen">
+<div class="bg-zinc-200 px-4 py-2 flex justify-between items-center text-[10px] font-bold text-zinc-600">
+<span>10:43 AM</span>
+<span>4G+</span>
+</div>
+<div class="flex-grow p-6 flex items-center justify-center">
+<div class="bg-white p-5 rounded-lg shadow-sm border border-zinc-200 w-full font-mono text-sm leading-relaxed">
+<p class="mb-4 text-primary font-bold">REVENUE LEDGER</p>
+<p class="mb-4">Enter National ID (NIN) to retrieve your Taxpayer Number:</p>
+<div class="mt-4 pt-4 border-t border-zinc-100 flex gap-2">
+<div class="flex-grow h-8 bg-zinc-50 border border-zinc-300 px-2 flex items-center text-xs opacity-40">123456789...</div>
+<div class="bg-primary text-white px-3 py-1 text-xs flex items-center rounded">SEND</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class="flex flex-col gap-4">
+<div class="text-xs font-bold uppercase tracking-widest text-outline mb-1 px-2">Step 3: Confirmation</div>
+<div class="relative w-full aspect-[9/19] bg-zinc-900 rounded-[2.5rem] p-4 border-[6px] border-zinc-800 shadow-2xl">
+<div class="absolute top-0 left-1/2 -translate-x-1/2 w-24 h-6 bg-zinc-800 rounded-b-xl"></div>
+<div class="h-full w-full bg-[#f0f0f0] rounded-[1.8rem] flex flex-col overflow-hidden ussd-screen">
+<div class="bg-zinc-200 px-4 py-2 flex justify-between items-center text-[10px] font-bold text-zinc-600">
+<span>10:44 AM</span>
+<span>4G+</span>
+</div>
+<div class="flex-grow p-6 flex items-center justify-center">
+<div class="bg-white p-5 rounded-lg shadow-sm border border-zinc-200 w-full font-mono text-sm leading-relaxed">
+<p class="mb-4">TIN FOUND: 9022-XXXX</p>
+<p class="mb-2">Name: AMINU K.</p>
+<p class="mb-4 text-primary">Pending: $12.50 (Market Fee)</p>
+<p>1. Pay with Mobile Money</p>
+<p>2. Exit</p>
+<div class="mt-4 pt-4 border-t border-zinc-100 flex gap-2">
+<div class="flex-grow h-8 bg-zinc-50 border border-zinc-300 px-2 flex items-center">1</div>
+<div class="bg-primary text-white px-3 py-1 text-xs flex items-center rounded">SEND</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class="flex flex-col gap-4">
+<div class="text-xs font-bold uppercase tracking-widest text-outline mb-1 px-2">Step 4: Success</div>
+<div class="relative w-full aspect-[9/19] bg-zinc-900 rounded-[2.5rem] p-4 border-[6px] border-zinc-800 shadow-2xl">
+<div class="absolute top-0 left-1/2 -translate-x-1/2 w-24 h-6 bg-zinc-800 rounded-b-xl"></div>
+<div class="h-full w-full bg-[#f0f0f0] rounded-[1.8rem] flex flex-col overflow-hidden ussd-screen">
+<div class="bg-zinc-200 px-4 py-2 flex justify-between items-center text-[10px] font-bold text-zinc-600">
+<span>10:45 AM</span>
+<span>4G+</span>
+</div>
+<div class="flex-grow p-6 flex items-center justify-center">
+<div class="bg-white p-5 rounded-lg shadow-sm border border-zinc-200 w-full font-mono text-sm leading-relaxed">
+<p class="mb-4 text-green-700 font-bold">PAYMENT INITIATED</p>
+<p class="mb-4">Please enter your Mobile Money PIN on the next pop-up to authorize $12.50.</p>
+<p>Ref: REV-82921-X</p>
+<div class="mt-4 pt-4 border-t border-zinc-100 flex justify-center">
+<div class="bg-zinc-800 text-white px-6 py-1 text-xs flex items-center rounded">OK</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+<section class="mt-16 bg-surface-container-low p-8 rounded-xl">
+<h2 class="font-headline text-2xl font-bold text-primary mb-6">User Context &amp; Infrastructure</h2>
+<div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+<div class="bg-surface-container-lowest p-6 rounded-lg relative">
+<div class="absolute left-0 top-0 bottom-0 w-1 bg-surface-tint"></div>
+<div class="text-xs font-bold uppercase tracking-widest text-outline mb-2">Connectivity</div>
+<div class="text-xl font-headline font-bold text-on-surface">Offline-First USSD</div>
+<p class="text-sm text-on-surface-variant mt-2">Operates on GSM signaling channels, requiring zero mobile data for informal sector accessibility.</p>
+</div>
+<div class="bg-surface-container-lowest p-6 rounded-lg relative">
+<div class="absolute left-0 top-0 bottom-0 w-1 bg-surface-tint"></div>
+<div class="text-xs font-bold uppercase tracking-widest text-outline mb-2">Security</div>
+<div class="text-xl font-headline font-bold text-on-surface">Session Encryption</div>
+<p class="text-sm text-on-surface-variant mt-2">Temporary sessions (120s timeout) ensure data integrity and prevent unauthorized access.</p>
+</div>
+<div class="bg-surface-container-lowest p-6 rounded-lg relative">
+<div class="absolute left-0 top-0 bottom-0 w-1 bg-surface-tint"></div>
+<div class="text-xs font-bold uppercase tracking-widest text-outline mb-2">Identity</div>
+<div class="text-xl font-headline font-bold text-on-surface">NIN Harmonization</div>
+<p class="text-sm text-on-surface-variant mt-2">Direct integration with national identity databases for instant TIN retrieval via USSD.</p>
+</div>
+</div>
+</section>
+<section class="mt-12 overflow-hidden rounded-2xl shadow-sm border border-outline-variant/15">
+<div class="bg-surface-container-high px-6 py-3">
+<span class="text-xs font-bold uppercase tracking-widest text-on-surface-variant">Live Transactional Stream (Simulated)</span>
+</div>
+<div class="overflow-x-auto">
+<table class="w-full text-left border-collapse">
+<thead class="bg-surface-container-high/50">
+<tr>
+<th class="px-6 py-4 text-xs font-bold text-on-surface-variant uppercase tracking-wider">Session ID</th>
+<th class="px-6 py-4 text-xs font-bold text-on-surface-variant uppercase tracking-wider">Phone Number</th>
+<th class="px-6 py-4 text-xs font-bold text-on-surface-variant uppercase tracking-wider">Action</th>
+<th class="px-6 py-4 text-xs font-bold text-on-surface-variant uppercase tracking-wider">Timestamp</th>
+<th class="px-6 py-4 text-xs font-bold text-on-surface-variant uppercase tracking-wider">Status</th>
+</tr>
+</thead>
+<tbody class="divide-y-0">
+<tr class="bg-surface hover:bg-primary-fixed-dim/20 transition-colors">
+<td class="px-6 py-4 font-mono text-sm">#USSD-9281-1</td>
+<td class="px-6 py-4 text-sm font-medium">+234 802 *** 4910</td>
+<td class="px-6 py-4 text-sm">TIN Retrieval</td>
+<td class="px-6 py-4 text-sm text-on-surface-variant">Just Now</td>
+<td class="px-6 py-4">
+<span class="inline-flex items-center gap-1.5 px-2.5 py-0.5 rounded-full text-xs font-bold bg-secondary-container text-on-secondary-container">
+<span class="w-1.5 h-1.5 rounded-full bg-secondary-fixed animate-pulse"></span> ACTIVE
+                                </span>
+</td>
+</tr>
+<tr class="bg-surface-container-low hover:bg-primary-fixed-dim/20 transition-colors">
+<td class="px-6 py-4 font-mono text-sm">#USSD-9280-5</td>
+<td class="px-6 py-4 text-sm font-medium">+234 703 *** 1122</td>
+<td class="px-6 py-4 text-sm">Revenue Payment</td>
+<td class="px-6 py-4 text-sm text-on-surface-variant">2 mins ago</td>
+<td class="px-6 py-4">
+<span class="inline-flex items-center gap-1.5 px-2.5 py-0.5 rounded-full text-xs font-bold bg-tertiary-container text-on-tertiary-container">
+                                    PENDING
+                                </span>
+</td>
+</tr>
+<tr class="bg-surface hover:bg-primary-fixed-dim/20 transition-colors">
+<td class="px-6 py-4 font-mono text-sm">#USSD-9279-8</td>
+<td class="px-6 py-4 text-sm font-medium">+234 815 *** 0042</td>
+<td class="px-6 py-4 text-sm">Balance Check</td>
+<td class="px-6 py-4 text-sm text-on-surface-variant">5 mins ago</td>
+<td class="px-6 py-4">
+<span class="inline-flex items-center gap-1.5 px-2.5 py-0.5 rounded-full text-xs font-bold bg-primary-container text-on-primary-container">
+                                    COMPLETED
+                                </span>
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+</section>
+</main>
+<nav class="fixed bottom-0 left-0 w-full flex justify-around items-center px-4 h-20 pb-safe bg-white dark:bg-cyan-950 shadow-[0_-4px_20px_rgba(0,0,0,0.05)] z-50 rounded-t-xl md:hidden">
+<div class="flex flex-col items-center justify-center text-slate-400 dark:text-cyan-700 hover:text-cyan-900 transition-all scale-95 duration-100 ease-out">
+<span class="material-symbols-outlined" data-icon="grid_view">grid_view</span>
+<span class="text-[11px] font-bold uppercase tracking-widest mt-1">Home</span>
+</div>
+<div class="flex flex-col items-center justify-center bg-cyan-100 dark:bg-cyan-800 text-cyan-900 dark:text-cyan-50 rounded-2xl px-5 py-1.5 scale-95 duration-100 ease-out">
+<span class="material-symbols-outlined" data-icon="payments">payments</span>
+<span class="text-[11px] font-bold uppercase tracking-widest mt-1">Collect</span>
+</div>
+<div class="flex flex-col items-center justify-center text-slate-400 dark:text-cyan-700 hover:text-cyan-900 transition-all scale-95 duration-100 ease-out">
+<span class="material-symbols-outlined" data-icon="qr_code_scanner">qr_code_scanner</span>
+<span class="text-[11px] font-bold uppercase tracking-widest mt-1">Scanner</span>
+</div>
+<div class="flex flex-col items-center justify-center text-slate-400 dark:text-cyan-700 hover:text-cyan-900 transition-all scale-95 duration-100 ease-out">
+<span class="material-symbols-outlined" data-icon="cloud_sync">cloud_sync</span>
+<span class="text-[11px] font-bold uppercase tracking-widest mt-1">Sync</span>
+</div>
+</nav>
+<aside class="hidden md:flex h-screen w-64 fixed left-0 top-0 bg-slate-100 dark:bg-cyan-950/80 flex-col h-full py-4 transition-all z-40 pt-20">
+<div class="px-6 py-4">
+<div class="text-lg font-black text-cyan-900 dark:text-cyan-100 uppercase tracking-tighter">Admin Console</div>
+<div class="text-[10px] uppercase tracking-widest text-slate-500 font-bold">Sovereign Ledger</div>
+</div>
+<nav class="flex-grow mt-6">
+<div class="px-4 space-y-1">
+<a class="flex items-center gap-3 px-4 py-3 text-slate-600 dark:text-slate-400 hover:text-cyan-800 hover:bg-slate-200 dark:hover:bg-cyan-900 rounded-lg transition-all font-inter text-sm font-medium" href="#">
+<span class="material-symbols-outlined">leaderboard</span>
+                    Analytics
+                </a>
+<a class="flex items-center gap-3 px-4 py-3 bg-cyan-100/50 dark:bg-cyan-800/40 text-cyan-900 dark:text-cyan-50 border-r-4 border-cyan-800 transition-all font-inter text-sm font-medium" href="#">
+<span class="material-symbols-outlined">account_tree</span>
+                    Revenue Heads
+                </a>
+<a class="flex items-center gap-3 px-4 py-3 text-slate-600 dark:text-slate-400 hover:text-cyan-800 hover:bg-slate-200 dark:hover:bg-cyan-900 rounded-lg transition-all font-inter text-sm font-medium" href="#">
+<span class="material-symbols-outlined">group</span>
+                    Taxpayers
+                </a>
+<a class="flex items-center gap-3 px-4 py-3 text-slate-600 dark:text-slate-400 hover:text-cyan-800 hover:bg-slate-200 dark:hover:bg-cyan-900 rounded-lg transition-all font-inter text-sm font-medium" href="#">
+<span class="material-symbols-outlined">history_edu</span>
+                    Audit Logs
+                </a>
+<a class="flex items-center gap-3 px-4 py-3 text-slate-600 dark:text-slate-400 hover:text-cyan-800 hover:bg-slate-200 dark:hover:bg-cyan-900 rounded-lg transition-all font-inter text-sm font-medium" href="#">
+<span class="material-symbols-outlined">settings</span>
+                    Settings
+                </a>
+</div>
+</nav>
+<div class="px-4 mt-auto border-t border-slate-200/50 pt-4">
+<a class="flex items-center gap-3 px-4 py-3 text-slate-600 dark:text-slate-400 hover:text-error transition-all font-inter text-sm font-medium" href="#">
+<span class="material-symbols-outlined">logout</span>
+                Logout
+            </a>
+</div>
+</aside>
+<div class="fixed bottom-8 right-8 z-50 md:hidden">
+<button class="w-14 h-14 bg-primary text-white rounded-full flex items-center justify-center shadow-lg active:scale-95 transition-transform">
+<span class="material-symbols-outlined">add</span>
+</button>
+</div>
+</body></html>

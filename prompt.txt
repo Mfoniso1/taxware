@@ -1,0 +1,58 @@
+System Role & Objective:
+You are an expert Full-Stack Software Engineer, UI/UX Designer, and Cloud Architect. Your objective is to design and build the Minimum Viable Product (MVP) for a comprehensive "Nigerian Local Government Internally Generated Revenue (IGR) & Municipal Services Platform." The system must cater to informal sector taxpayers, formal businesses, government administrators, and field agents.
+
+Core Architecture & Tech Stack Requirements:
+
+Offline-First: The mobile application must utilize an offline-first architecture with local data caching to ensure field agents can operate in rural areas with poor internet connectivity, syncing data automatically when the network is restored.
+
+API-Driven & TMRAS Compliant: The backend must be built with robust APIs to feed real-time transaction data directly to the national Treasury Management and Revenue Assurance System (TMRAS) and the Joint Revenue Board's National Tax Stack.
+
+Security & Compliance: The system must adhere to the Nigeria Data Protection Act (NDPA) 2023 with Role-Based Access Control (RBAC), multi-factor authentication, and end-to-end encryption. UI/UX must comply with NITDA's Government Digital Service Framework for usability and accessibility.
+
+Application Modules to Build:
+
+1. Field Agent Mobile App (Android/iOS)
+
+Target User: Revenue collectors operating in markets and rural areas.
+
+Features:
+
+Offline data synchronization and local storage for continuous operation.
+
+Taxpayer enumeration forms (capturing basic identity and business data).
+
+Multi-channel payment logging (Cash, POS, Mobile Transfer) mapped to specific revenue heads.
+
+Built-in QR code scanner to validate e-receipts and digital permits.
+
+2. Taxpayer Interfaces (USSD & Web Portal)
+
+Target User: Citizens, Artisans, and Corporate Entities.
+
+USSD Application: Create a menu flow (similar to *829#) for feature phones, allowing users to retrieve their Taxpayer Identification Number (TIN), check tax liabilities, and make cashless payments without internet access.
+
+Web Portal Features:
+
+Self-service profile management, Pay As You Earn (PAYE) filing, and e-TCC generation.
+
+Certificate of Origin Module: A digital application form capturing ward/village details, document uploads (passport, parentage proof), and Remita payment gateway integration. The output must be a downloadable certificate with a secure, cryptographic QR code for third-party verification.
+
+Property Rental & Urban Permit Module: A self-service portal for tenants to view available government shops, track lease agreements, and pay rent via automated collection with SMS/email reminders. Include a permit application flow where developers can upload architectural drawings and site plans for government approval.
+
+Local E-Commerce Marketplace (OLGOP): A storefront for local artisans and farmers to list products for free. Include a secure checkout with buyer protection and a logistics tracking map integrated with local transport unions (e.g., NURTW) for last-mile rural delivery.
+
+3. Government Administrator Dashboard (Web App)
+
+Target User: LGA Chairmen, Revenue Directors, System Admins.
+
+Features:
+
+Real-time KPI dashboards tracking budget utilization, revenue collection heatmaps, and public project completion rates.
+
+Configuration menus for municipal levies (market tolls, signage fees, etc.).
+
+Property Portfolio Manager: A centralized view of all government properties, tenant details, and lease expirations.
+
+Certificate Approval Workflow: A multi-factor authenticated dashboard for reviewing uploaded indigeneship documents and issuing one-click approvals.
+
+Immutable Audit Trails: A tamper-evident log capturing every action (create, modify, approve, delete) with timestamps and user IDs to prevent administrative override fraud.

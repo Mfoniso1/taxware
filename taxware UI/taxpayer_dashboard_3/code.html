@@ -1,0 +1,313 @@
+<!DOCTYPE html>
+
+<html class="light" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>TaxTrack NG - Taxpayer Portal</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Public+Sans:wght@400;600;700;800;900&amp;family=Inter:wght@300;400;500;600;700&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    "colors": {
+                        "background": "#f8f9fa",
+                        "primary-container": "#135f67",
+                        "on-secondary-fixed-variant": "#354a53",
+                        "on-surface": "#191c1d",
+                        "surface-container": "#edeeef",
+                        "secondary-container": "#cfe6f2",
+                        "on-tertiary": "#ffffff",
+                        "on-secondary-fixed": "#071e27",
+                        "surface-container-highest": "#e1e3e4",
+                        "on-tertiary-fixed-variant": "#6b3a16",
+                        "primary": "#00464d",
+                        "surface-container-low": "#f3f4f5",
+                        "secondary-fixed": "#cfe6f2",
+                        "secondary": "#4c616c",
+                        "primary-fixed": "#abeef7",
+                        "outline": "#6f7979",
+                        "on-error": "#ffffff",
+                        "tertiary": "#62330f",
+                        "secondary-fixed-dim": "#b4cad6",
+                        "surface": "#f8f9fa",
+                        "primary-fixed-dim": "#90d1da",
+                        "surface-tint": "#206770",
+                        "surface-container-high": "#e7e8e9",
+                        "on-tertiary-fixed": "#311300",
+                        "on-primary-fixed-variant": "#004f56",
+                        "on-primary-container": "#95d6df",
+                        "error-container": "#ffdad6",
+                        "surface-variant": "#e1e3e4",
+                        "inverse-on-surface": "#f0f1f2",
+                        "error": "#ba1a1a",
+                        "on-secondary": "#ffffff",
+                        "on-surface-variant": "#3f4949",
+                        "tertiary-container": "#7e4924",
+                        "on-background": "#191c1d",
+                        "on-primary": "#ffffff",
+                        "on-primary-fixed": "#001f23",
+                        "surface-container-lowest": "#ffffff",
+                        "tertiary-fixed-dim": "#ffb688",
+                        "surface-bright": "#f8f9fa",
+                        "tertiary-fixed": "#ffdbc7",
+                        "inverse-primary": "#90d1da",
+                        "outline-variant": "#bec8c9",
+                        "on-error-container": "#93000a",
+                        "inverse-surface": "#2e3132",
+                        "on-secondary-container": "#526772",
+                        "surface-dim": "#d9dadb",
+                        "on-tertiary-container": "#ffbe95"
+                    },
+                    "borderRadius": {
+                        "DEFAULT": "0.125rem",
+                        "lg": "0.25rem",
+                        "xl": "0.5rem",
+                        "full": "0.75rem"
+                    },
+                    "fontFamily": {
+                        "headline": ["Public Sans"],
+                        "body": ["Inter"],
+                        "label": ["Inter"]
+                    }
+                },
+            },
+        }
+    </script>
+<style>
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+        }
+        body { font-family: 'Inter', sans-serif; }
+        h1, h2, h3, .brand-font { font-family: 'Public Sans', sans-serif; }
+    </style>
+</head>
+<body class="bg-background text-on-surface">
+<!-- TopNavBar -->
+<header class="fixed top-0 w-full z-50 bg-slate-50 dark:bg-cyan-950 flex justify-between items-center px-6 h-16 w-full">
+<div class="flex items-center gap-8">
+<span class="text-xl font-bold tracking-tighter text-cyan-900 dark:text-cyan-50 brand-font">TaxTrack NG</span>
+<nav class="hidden md:flex gap-6">
+<a class="text-cyan-700 dark:text-cyan-300 font-semibold border-b-2 border-cyan-700 py-4 font-public-sans tracking-tight" href="#">Analytics</a>
+<a class="text-slate-500 dark:text-slate-400 font-medium hover:bg-slate-200/50 dark:hover:bg-cyan-800/50 transition-colors py-4 font-public-sans tracking-tight" href="#">Revenue Heads</a>
+<a class="text-slate-500 dark:text-slate-400 font-medium hover:bg-slate-200/50 dark:hover:bg-cyan-800/50 transition-colors py-4 font-public-sans tracking-tight" href="#">Taxpayers</a>
+</nav>
+</div>
+<div class="flex items-center gap-4">
+<div class="relative hidden sm:block">
+<span class="material-symbols-outlined absolute left-3 top-1/2 -translate-y-1/2 text-on-surface-variant text-sm">search</span>
+<input class="bg-surface-container-high border-none rounded-xl pl-10 pr-4 py-2 text-sm focus:ring-2 focus:ring-primary w-64" placeholder="Search records..." type="text"/>
+</div>
+<div class="flex items-center gap-2">
+<button class="p-2 rounded-full hover:bg-slate-200/50 dark:hover:bg-cyan-800/50 transition-colors text-cyan-900 dark:text-cyan-100"><span class="material-symbols-outlined">sync</span></button>
+<button class="p-2 rounded-full hover:bg-slate-200/50 dark:hover:bg-cyan-800/50 transition-colors text-cyan-900 dark:text-cyan-100"><span class="material-symbols-outlined">notifications</span></button>
+<button class="p-2 rounded-full hover:bg-slate-200/50 dark:hover:bg-cyan-800/50 transition-colors text-cyan-900 dark:text-cyan-100"><span class="material-symbols-outlined">account_circle</span></button>
+</div>
+</div>
+</header>
+<!-- SideNavBar -->
+<aside class="h-screen w-64 fixed left-0 top-0 pt-16 bg-slate-100 dark:bg-cyan-950/80 flex flex-col hidden md:flex">
+<div class="px-6 py-8">
+<div class="flex items-center gap-3 mb-6">
+<img alt="Government Administrator Profile" class="w-10 h-10 rounded-full bg-surface-container-highest" data-alt="Professional corporate headshot of a business executive in a sharp navy suit against a clean architectural background" src="https://lh3.googleusercontent.com/aida-public/AB6AXuBVQ12ijYT3775GvhBGr-LHz-0svXz6bfMf5o18d0VnUXMgW9SwMlEFWbhmEi-XKpcBsXlubSTQSHy3z3GPpchE8o0KguG2tqD95kebI6v6C6QLkdv4aBmgitC0g25v4IC0V3qd-yv8GyDsnWuScAOOakuJqFpdTwDVUf6Aoc899nXalm3ew9K8zsMLzgldrFGwRMmm_DK1vEk7uHc-bZJwMuml4pspfvyXCzGxMoNdoZu-dwM4uoLubyBBAEFUWH9wzMy5pVvMdl3t"/>
+<div>
+<h3 class="text-sm font-black text-cyan-900 dark:text-cyan-100 leading-tight">Admin Console</h3>
+<p class="text-xs text-slate-500 font-medium uppercase tracking-wider">TaxTrack NG</p>
+</div>
+</div>
+<nav class="space-y-1">
+<a class="flex items-center gap-3 px-4 py-3 bg-cyan-100/50 dark:bg-cyan-800/40 text-cyan-900 dark:text-cyan-50 border-r-4 border-cyan-800 font-inter text-sm font-medium smooth-transition-all" href="#">
+<span class="material-symbols-outlined">leaderboard</span> Analytics
+                </a>
+<a class="flex items-center gap-3 px-4 py-3 text-slate-600 dark:text-slate-400 hover:text-cyan-800 hover:bg-slate-200 dark:hover:bg-cyan-900 font-inter text-sm font-medium transition-all" href="#">
+<span class="material-symbols-outlined">account_tree</span> Revenue Heads
+                </a>
+<a class="flex items-center gap-3 px-4 py-3 text-slate-600 dark:text-slate-400 hover:text-cyan-800 hover:bg-slate-200 dark:hover:bg-cyan-900 font-inter text-sm font-medium transition-all" href="#">
+<span class="material-symbols-outlined">group</span> Taxpayers
+                </a>
+<a class="flex items-center gap-3 px-4 py-3 text-slate-600 dark:text-slate-400 hover:text-cyan-800 hover:bg-slate-200 dark:hover:bg-cyan-900 font-inter text-sm font-medium transition-all" href="#">
+<span class="material-symbols-outlined">history_edu</span> Audit Logs
+                </a>
+<a class="flex items-center gap-3 px-4 py-3 text-slate-600 dark:text-slate-400 hover:text-cyan-800 hover:bg-slate-200 dark:hover:bg-cyan-900 font-inter text-sm font-medium transition-all" href="#">
+<span class="material-symbols-outlined">settings</span> Settings
+                </a>
+</nav>
+</div>
+<div class="mt-auto px-6 py-4 border-t border-slate-200/50">
+<a class="flex items-center gap-3 px-4 py-3 text-slate-600 dark:text-slate-400 hover:text-error font-inter text-sm font-medium" href="#">
+<span class="material-symbols-outlined">logout</span> Logout
+            </a>
+</div>
+</aside>
+<!-- Main Content Canvas -->
+<main class="md:pl-64 pt-16 min-h-screen">
+<div class="p-8 max-w-7xl mx-auto">
+<!-- Dashboard Header Section -->
+<div class="mb-10 flex flex-col md:flex-row md:items-end justify-between gap-6">
+<div>
+<span class="text-xs font-bold text-primary tracking-[0.2em] uppercase mb-2 block">Enterprise Portal</span>
+<h1 class="text-4xl font-extrabold text-on-surface tracking-tighter">Taxpayer Dashboard</h1>
+<p class="text-on-surface-variant mt-2 max-w-lg">Manage your corporate fiscal obligations and compliance certifications from the central sovereign ledger.</p>
+</div>
+<div class="flex gap-3">
+<button class="bg-primary hover:bg-primary-container text-on-primary px-6 py-3 rounded-lg font-semibold flex items-center gap-2 transition-all shadow-lg shadow-primary/10">
+<span class="material-symbols-outlined text-sm">post_add</span> File Annual Return
+                    </button>
+<button class="bg-surface-container-high hover:bg-surface-container-highest text-on-surface px-6 py-3 rounded-lg font-semibold flex items-center gap-2 transition-all">
+<span class="material-symbols-outlined text-sm">verified</span> Request e-TCC
+                    </button>
+</div>
+</div>
+<!-- Bento Grid Dashboard -->
+<div class="grid grid-cols-1 md:grid-cols-12 gap-6">
+<!-- Profile Summary Card (Bento Large) -->
+<div class="md:col-span-8 bg-surface-container-lowest rounded-xl p-8 flex flex-col md:flex-row gap-8 relative overflow-hidden">
+<div class="absolute left-0 top-0 bottom-0 w-1.5 bg-surface-tint"></div>
+<div class="w-24 h-24 bg-surface-container-high rounded-2xl flex-shrink-0 overflow-hidden">
+<img alt="Corporate Building" class="w-full h-full object-cover" data-alt="Modern glass skyscraper facade reflecting a clear blue sky, emphasizing corporate stability and transparency" src="https://lh3.googleusercontent.com/aida-public/AB6AXuDsDtO0ErI58ZegUJIJgxafpLg4zHb3zSwnuOwFNunI7Ih6iia-BjmVZSCFh83lwoNYEk8QAC7M1mNEAefpyWHm0-tounFFuUz3MqaEBXV2SiZdQnL0ond9KfczYchCrWQXnYJa1sKDnnCOR0tsOE8OxQ5pRMo4YbGOF1ePvA8GGQB4rcRNi8tSsd7MkWdUQYuV6Az5oHNfsVc0PEIUnxfgpdgpYiUtM2-p3TOTIUIu2EttLZLqlbd2LXiGL1K0femYp930QiXpPgRZ"/>
+</div>
+<div class="flex-grow">
+<div class="flex items-center justify-between mb-4">
+<div>
+<h2 class="text-2xl font-bold text-on-surface">Nexus Global Dynamics LTD</h2>
+<p class="text-on-surface-variant font-medium">TIN: 29384-X92-2023</p>
+</div>
+<span class="px-3 py-1 bg-secondary-container text-on-secondary-container rounded-full text-xs font-bold uppercase tracking-wider">Formal Sector</span>
+</div>
+<div class="grid grid-cols-2 md:grid-cols-3 gap-6 pt-6 border-t border-surface-container">
+<div>
+<p class="text-[10px] font-bold uppercase tracking-widest text-outline mb-1">Tax Office</p>
+<p class="text-sm font-semibold">Central Business District</p>
+</div>
+<div>
+<p class="text-[10px] font-bold uppercase tracking-widest text-outline mb-1">Company Secretary</p>
+<p class="text-sm font-semibold">Elena Rodriguez</p>
+</div>
+<div>
+<p class="text-[10px] font-bold uppercase tracking-widest text-outline mb-1">Compliance Status</p>
+<div class="flex items-center gap-1.5">
+<div class="w-2 h-2 rounded-full bg-secondary shadow-[0_0_8px_rgba(76,97,108,0.4)]"></div>
+<p class="text-sm font-semibold">Active</p>
+</div>
+</div>
+</div>
+</div>
+</div>
+<!-- Tax Liability Snapshot (Bento Tall) -->
+<div class="md:col-span-4 bg-primary text-on-primary rounded-xl p-8 flex flex-col justify-between relative overflow-hidden">
+<div class="absolute -right-12 -top-12 w-48 h-48 bg-primary-container/30 rounded-full blur-3xl"></div>
+<div>
+<span class="text-[10px] font-bold uppercase tracking-widest text-primary-fixed/60 mb-1 block">Total Liability</span>
+<h3 class="text-4xl font-bold tracking-tighter">₦4,285,000.00</h3>
+<p class="text-primary-fixed/80 text-xs mt-2">Due by November 30, 2023</p>
+</div>
+<div class="mt-8">
+<button class="w-full bg-primary-fixed text-on-primary-fixed py-3 rounded-lg font-bold flex items-center justify-center gap-2 transition-transform active:scale-95">
+                            Pay Now <span class="material-symbols-outlined text-sm">arrow_forward</span>
+</button>
+</div>
+</div>
+<!-- Metrics Grid -->
+<div class="md:col-span-4 bg-surface-container-low rounded-xl p-6 relative">
+<div class="absolute left-0 top-6 bottom-6 w-1 bg-surface-tint"></div>
+<p class="text-[11px] font-bold uppercase tracking-[0.15em] text-on-surface-variant mb-2">Assessments Raised</p>
+<div class="flex items-end justify-between">
+<h4 class="text-3xl font-bold text-on-surface tracking-tight">12</h4>
+<span class="text-secondary font-bold text-xs flex items-center gap-1 bg-secondary-container px-2 py-1 rounded">
+<span class="material-symbols-outlined text-xs">trending_up</span> +2
+                        </span>
+</div>
+</div>
+<div class="md:col-span-4 bg-surface-container-low rounded-xl p-6 relative">
+<div class="absolute left-0 top-6 bottom-6 w-1 bg-surface-tint"></div>
+<p class="text-[11px] font-bold uppercase tracking-[0.15em] text-on-surface-variant mb-2">Pending Objections</p>
+<div class="flex items-end justify-between">
+<h4 class="text-3xl font-bold text-on-surface tracking-tight">02</h4>
+<span class="text-tertiary font-bold text-xs flex items-center gap-1 bg-tertiary-fixed px-2 py-1 rounded">
+<span class="material-symbols-outlined text-xs">hourglass_empty</span> Active
+                        </span>
+</div>
+</div>
+<div class="md:col-span-4 bg-surface-container-low rounded-xl p-6 relative">
+<div class="absolute left-0 top-6 bottom-6 w-1 bg-surface-tint"></div>
+<p class="text-[11px] font-bold uppercase tracking-[0.15em] text-on-surface-variant mb-2">Next Audit Date</p>
+<div class="flex items-end justify-between">
+<h4 class="text-xl font-bold text-on-surface tracking-tight">Dec 15, 2023</h4>
+<span class="material-symbols-outlined text-on-surface-variant">calendar_month</span>
+</div>
+</div>
+<!-- Recent Activity Table -->
+<div class="md:col-span-12 bg-surface-container-lowest rounded-xl overflow-hidden mt-2">
+<div class="px-8 py-6 flex items-center justify-between border-b border-surface-container">
+<h3 class="text-lg font-bold text-on-surface">Recent Transactions &amp; Filings</h3>
+<button class="text-sm font-semibold text-primary flex items-center gap-1">View Full Ledger <span class="material-symbols-outlined text-sm">chevron_right</span></button>
+</div>
+<div class="overflow-x-auto">
+<table class="w-full text-left">
+<thead>
+<tr class="bg-surface-container-high">
+<th class="px-8 py-4 text-[11px] font-bold uppercase tracking-widest text-on-surface-variant">Date</th>
+<th class="px-8 py-4 text-[11px] font-bold uppercase tracking-widest text-on-surface-variant">Reference</th>
+<th class="px-8 py-4 text-[11px] font-bold uppercase tracking-widest text-on-surface-variant">Type</th>
+<th class="px-8 py-4 text-[11px] font-bold uppercase tracking-widest text-on-surface-variant">Amount</th>
+<th class="px-8 py-4 text-[11px] font-bold uppercase tracking-widest text-on-surface-variant">Status</th>
+</tr>
+</thead>
+<tbody class="divide-y divide-surface-container-low">
+<tr class="hover:bg-primary-fixed-dim/20 transition-colors">
+<td class="px-8 py-4 text-sm font-medium">Oct 24, 2023</td>
+<td class="px-8 py-4 text-sm font-mono">PAY-772910</td>
+<td class="px-8 py-4 text-sm">VAT Monthly Remittance</td>
+<td class="px-8 py-4 text-sm font-bold">₦1,250,000</td>
+<td class="px-8 py-4">
+<span class="px-3 py-1 bg-secondary-fixed text-on-secondary-fixed rounded-full text-[10px] font-black uppercase tracking-tighter">Successful</span>
+</td>
+</tr>
+<tr class="bg-surface-container-low hover:bg-primary-fixed-dim/20 transition-colors">
+<td class="px-8 py-4 text-sm font-medium">Oct 12, 2023</td>
+<td class="px-8 py-4 text-sm font-mono">RET-221083</td>
+<td class="px-8 py-4 text-sm">WHT Schedule Filing</td>
+<td class="px-8 py-4 text-sm font-bold">--</td>
+<td class="px-8 py-4">
+<span class="px-3 py-1 bg-tertiary-fixed text-on-tertiary-fixed rounded-full text-[10px] font-black uppercase tracking-tighter">Under Review</span>
+</td>
+</tr>
+<tr class="hover:bg-primary-fixed-dim/20 transition-colors">
+<td class="px-8 py-4 text-sm font-medium">Sep 30, 2023</td>
+<td class="px-8 py-4 text-sm font-mono">PAY-771522</td>
+<td class="px-8 py-4 text-sm">Corporate Income Tax</td>
+<td class="px-8 py-4 text-sm font-bold">₦3,035,000</td>
+<td class="px-8 py-4">
+<span class="px-3 py-1 bg-secondary-fixed text-on-secondary-fixed rounded-full text-[10px] font-black uppercase tracking-tighter">Successful</span>
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+</div>
+</div>
+</main>
+<!-- BottomNavBar (Mobile Only) -->
+<footer class="md:hidden fixed bottom-0 left-0 w-full bg-white dark:bg-cyan-950 flex justify-around items-center px-4 h-20 pb-safe z-50 rounded-t-xl border-t border-slate-100 dark:border-cyan-900 shadow-[0_-4px_20px_rgba(0,0,0,0.05)]">
+<a class="flex flex-col items-center justify-center bg-cyan-100 dark:bg-cyan-800 text-cyan-900 dark:text-cyan-50 rounded-2xl px-5 py-1.5 scale-95 duration-100 ease-out" href="#">
+<span class="material-symbols-outlined">grid_view</span>
+<span class="font-inter text-[11px] font-bold uppercase tracking-widest mt-1">Home</span>
+</a>
+<a class="flex flex-col items-center justify-center text-slate-400 dark:text-cyan-700 active:bg-slate-100 dark:active:bg-cyan-900 scale-95 duration-100 ease-out" href="#">
+<span class="material-symbols-outlined">payments</span>
+<span class="font-inter text-[11px] font-bold uppercase tracking-widest mt-1">Collect</span>
+</a>
+<a class="flex flex-col items-center justify-center text-slate-400 dark:text-cyan-700 active:bg-slate-100 dark:active:bg-cyan-900 scale-95 duration-100 ease-out" href="#">
+<span class="material-symbols-outlined">qr_code_scanner</span>
+<span class="font-inter text-[11px] font-bold uppercase tracking-widest mt-1">Scanner</span>
+</a>
+<a class="flex flex-col items-center justify-center text-slate-400 dark:text-cyan-700 active:bg-slate-100 dark:active:bg-cyan-900 scale-95 duration-100 ease-out" href="#">
+<span class="material-symbols-outlined">cloud_sync</span>
+<span class="font-inter text-[11px] font-bold uppercase tracking-widest mt-1">Sync</span>
+</a>
+</footer>
+</body></html>
