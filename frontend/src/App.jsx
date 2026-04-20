@@ -29,6 +29,9 @@ import RecordPayment from './components/RecordPayment';
 import QRScanner from './components/QRScanner';
 import FieldAgentLogin from './components/FieldAgentLogin';
 
+// Field Manager Pages
+import FieldManagerDashboard from './components/FieldManagerDashboard';
+
 // USSD
 import USSDMenuFlow from './components/USSDMenuFlow';
 
@@ -65,6 +68,9 @@ export default function App() {
           <Route path="payment" element={<RecordPayment />} />
           <Route path="scanner" element={<QRScanner />} />
         </Route>
+
+        {/* Field Manager App */}
+        <Route path="/manager" element={<FieldManagerDashboard />} />
         
         {/* Agent Login (no layout) */}
         <Route path="/agent/login" element={<FieldAgentLogin />} />

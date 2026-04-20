@@ -1,0 +1,6 @@
+{
+  "appId": "com.taxware.manager",
+  "appName": "TaxWare Manager",
+  "webDir": "dist",
+  "bundledWebRuntime": false
+}
